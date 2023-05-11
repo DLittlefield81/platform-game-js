@@ -8,20 +8,20 @@ Array.prototype.parse2D = function () {
 
 Array.prototype.createObjectsFrom2D = function () {
     const objects = []
-		this.forEach((row, y) => {
-			row.forEach((symbol, x) => {
-				if (symbol === 292) {
-					//push a collision into the collisionblocks array
-					collisionBlocks.push(
-						new CollisionBlock({
-							position: {
-								x: x * 64,
-								y: y * 64,
-							},
-						})
-					)
-				}
-			})
-		})
-        return objects
-	}
+    this.forEach((row, y) => {
+        row.forEach((symbol, x) => {
+            if (symbol === 292 || symbol === 250) {
+                //push a collision into the collisionblocks array
+                objects.push(
+                    new CollisionBlock({
+                        position: {
+                            x: x * 64,
+                            y: y * 64,
+                        },
+                    })
+                )
+            }
+        })
+    })
+    return objects
+}
