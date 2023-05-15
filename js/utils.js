@@ -3,6 +3,7 @@ Array.prototype.parse2D = function () {
     for (let i = 0; i < this.length; i += 16) {
         rows.push(this.slice(i, i + 16))
     }
+
     return rows
 }
 
@@ -11,7 +12,7 @@ Array.prototype.createObjectsFrom2D = function () {
     this.forEach((row, y) => {
         row.forEach((symbol, x) => {
             if (symbol === 292 || symbol === 250) {
-                //push a collision into the collisionblocks array
+                // push a new collision into collisionblocks array
                 objects.push(
                     new CollisionBlock({
                         position: {
@@ -23,5 +24,6 @@ Array.prototype.createObjectsFrom2D = function () {
             }
         })
     })
+
     return objects
 }
